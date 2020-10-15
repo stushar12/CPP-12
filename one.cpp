@@ -1,23 +1,35 @@
-#include<iostream>
-#include<string>
-#include<map>
-#include<algorithm>
-#include<unordered_set>
+#include<bits/stdc++.h>
 using namespace std;
-
 int main()
 {
 unordered_multiset<int> us;
-int arr[]={1,4,13,-3,-10,5};
+int p;
+cin>>p;
+while(p--)
+{
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+int k=0;
 int flag=0; 
-int k=4;
 int sum=0;
-int n=sizeof(arr)/sizeof(arr[0]);
 for (int i=0;i<n;i++)
 {
     if (k==arr[i])
+    {
     flag=1;
-    arr[i]=arr[i]+sum;
+    break;
+    }
+    arr[i]=arr[i]+sum ;
+    if (k==arr[i])
+    {
+    flag=1;
+    break;
+    }
     sum=arr[i];
 }
 for (int i=0;i<n;i++)
@@ -26,18 +38,22 @@ for (int i=0;i<n;i++)
     us.insert(arr[i]);
     else
     {
+        
      flag=1;   
+     break;
     }
     
 }
 if (flag)
 {
-    cout<<"Subarray exist"<<"\n";
+    cout<<"Yes"<<"\n";
 }
 else
 {
-    cout<<"Subarray doesn't exist";
+    cout<<"No"<<endl;
 }
+us.clear();
 
 
+}
 }
